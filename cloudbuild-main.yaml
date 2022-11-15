@@ -1,4 +1,9 @@
 steps:
+- id: 'tf init'
+  name: 'hashicorp/terraform:latest'
+  args:
+    - init
+
 - id: 'tf validate'
   name: 'hashicorp/terraform:latest'
   args:
