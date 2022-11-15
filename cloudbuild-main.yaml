@@ -21,5 +21,6 @@ steps:
   args:
     - apply
     - -auto-approve
+    - -no-color
 options:
   logging: CLOUD_LOGGING_ONLY
