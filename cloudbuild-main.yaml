@@ -1,0 +1,18 @@
+steps:
+- id: 'tf validate'
+  name: 'hashicorp/terraform:latest'
+  args:
+    - validate
+
+- id: 'tf fmt'
+  name: 'hashicorp/terraform:latest'
+  args:
+    - fmt
+    - -recursive
+    - -check
+
+- id: 'tf apply'
+  name: 'hashicorp/terraform:latest'
+  args:
+    - apply
+    - -auto-approve
