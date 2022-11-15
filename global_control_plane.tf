@@ -8,6 +8,7 @@ module "backend_billing" {
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  project_prefix                   = var.project_prefix
 }
 
 module "backend_automation" {
@@ -15,6 +16,7 @@ module "backend_automation" {
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  project_prefix                   = var.project_prefix
 }
 
 module "backend_common_services" {
@@ -22,6 +24,7 @@ module "backend_common_services" {
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  project_prefix                   = var.project_prefix
 }
 
 module "backend_network" {
@@ -29,6 +32,7 @@ module "backend_network" {
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  project_prefix                   = var.project_prefix
 }
 
 module "backend_security" {
@@ -36,4 +40,5 @@ module "backend_security" {
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  project_prefix                   = var.project_prefix
 }
