@@ -1,38 +1,38 @@
 module "backend_meta" {
-  source = "../bigmac-iac-backend/module-backend-meta"
+  source = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-meta"
   org_id = var.org_id
 }
 
 module "backend_billing" {
-  source                           = "../bigmac-iac-backend/module-backend-billing"
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-billing"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
 }
 
 module "backend_automation" {
-  source                           = "../bigmac-iac-backend/module-backend-automation"
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-automation"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
 }
 
 module "backend_common_services" {
-  source                           = "../bigmac-iac-backend/module-backend-common-services"
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-common-services"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
 }
 
 module "backend_network" {
-  source                           = "../bigmac-iac-backend/module-backend-network"
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-network"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
 }
 
 module "backend_security" {
-  source                           = "../bigmac-iac-backend/module-backend-security"
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-security"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
