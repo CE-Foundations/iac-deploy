@@ -24,6 +24,7 @@ steps:
   args:
     - plan
     - -no-color
+    - -lock=false
 
 options:
   logging: CLOUD_LOGGING_ONLY
