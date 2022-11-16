@@ -19,11 +19,11 @@ steps:
     - -check
     - -no-color
 
-- id: 'tf apply'
+- id: 'tf plan'
   name: 'hashicorp/terraform:latest'
   args:
-    - apply
-    - -auto-approve
+    - plan
     - -no-color
+
 options:
   logging: CLOUD_LOGGING_ONLY
