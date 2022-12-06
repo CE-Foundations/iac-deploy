@@ -1,44 +1,45 @@
-module "backend_meta" {
-  source = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-meta"
+# Implements "global control plane" modules to create org, folder, project structure
+module "top_level_org" {
+  source = "github.com/secretspecialsauce/iac-global-control-plane-mod//top_level_org"
   org_id = var.org_id
 }
 
-module "backend_billing" {
-  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-billing"
+module "global_control_plane_billing_org" {
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//billing_org"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
-  global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  global_control_plane_folder_name = module.top_level_org.global_control_plane_folder_name
   project_prefix                   = var.project_prefix
 }
 
-module "backend_automation" {
-  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-automation"
+module "global_control_plane_automation_org" {
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//automation_org"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
-  global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  global_control_plane_folder_name = module.top_level_org.global_control_plane_folder_name
   project_prefix                   = var.project_prefix
 }
 
-module "backend_common_services" {
-  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-common-services"
+module "global_control_plane_common_services_org" {
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//common_services_org"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
-  global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  global_control_plane_folder_name = module.top_level_org.global_control_plane_folder_name
   project_prefix                   = var.project_prefix
 }
 
-module "backend_network" {
-  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-network"
+module "global_control_plane_network_org" {
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//network_org"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
-  global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  global_control_plane_folder_name = module.top_level_org.global_control_plane_folder_name
   project_prefix                   = var.project_prefix
 }
 
-module "backend_security" {
-  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//module-backend-security"
+module "global_control_plane_security_org" {
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//security_org"
   org_id                           = var.org_id
   billing_account_id               = var.billing_account_id
-  global_control_plane_folder_name = module.backend_meta.global_control_plane_folder_name
+  global_control_plane_folder_name = module.top_level_org.global_control_plane_folder_name
   project_prefix                   = var.project_prefix
 }
