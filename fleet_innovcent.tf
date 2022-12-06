@@ -12,6 +12,7 @@ module "fleet_innovcent_org" {
 module "fleet_innovcent_sa_cluster_1" {
   source = "github.com/secretspecialsauce/iac-fleet-mod//cluster_service_accounts"
 
-  cluster_name = "clus-1"
-  project_id   = module.fleet_innovcent_org.control_plane_service_account_project.project_id
+  cluster_name       = "clus-1"
+  gsa_project_id     = module.fleet_innovcent_org.control_plane_service_account_project.project_id
+  gsa_iam_project_id = module.fleet_innovcent_org.fleet_project
 }
