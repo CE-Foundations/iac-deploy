@@ -9,6 +9,7 @@ steps:
       cd $d
       echo "Running 'init' in ${d}"
       terraform init -no-color
+      echo; echo
       cd -
     done
     
@@ -22,6 +23,8 @@ steps:
       for d in */; do
         cd $d
         echo "Running 'validate' in ${d}"
+        terraform validate -no-color
+        echo; echo
         cd -
       done 
 
@@ -35,6 +38,7 @@ steps:
       cd $d
       echo "Running 'fmt' in in ${d}"
       terraform fmt -recursive -check -no-color
+      echo; echo
       cd -
     done
 
@@ -48,6 +52,7 @@ steps:
       cd $d
       echo "Running 'apply' in ${d}"
       terraform apply -auto-approve -no-color
+      echo; echo
       cd -
     done
 
