@@ -7,10 +7,10 @@ steps:
     for d in */; do
       cd $d
       echo "in ${d}"
-      terraform init
+      terraform init -no-color
       if [ $? -ne 0 ]; then exit $?; fi
       cd -
-    done
+    done || exit 1
     
 
 - id: 'tf validate'
@@ -24,7 +24,7 @@ steps:
         terraform validate -no-color
         if [ $? -ne 0 ]; then exit $?; fi
         cd -
-      done
+      done || exit 1
 
 - id: 'tf fmt'
   name: 'hashicorp/terraform:latest'
@@ -37,7 +37,7 @@ steps:
       terraform fmt -recursive -check -no-color
       if [ $? -ne 0 ]; then exit $?; fi
       cd -
-    done
+    done || exit 1
 
 - id: 'tf apply'
   name: 'hashicorp/terraform:latest'
@@ -50,7 +50,7 @@ steps:
       terraform apply -auto-approve -no-color
       if [ $? -ne 0 ]; then exit $?; fi
       cd -
-    done
+    done || exit 1
 
 options:
   logging: CLOUD_LOGGING_ONLY
