@@ -13,9 +13,7 @@ module "global_control_plane_billing_org" {
 }
 
 module "global_control_plane_automation_org" {
-#  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//automation_org"
-  source                           = "/Users/durivage/Projects/customers/mcd/iac-global-control-plane-mod/automation_resources"
-  org_id                           = var.org_id
+  source                           = "github.com/secretspecialsauce/iac-global-control-plane-mod//automation_resources"
   billing_account_id               = var.billing_account_id
   global_control_plane_folder_name = module.top_level_org.global_control_plane_folder_name
   project_prefix                   = var.project_prefix
