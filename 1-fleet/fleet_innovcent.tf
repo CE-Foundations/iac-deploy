@@ -5,7 +5,7 @@ module "fleet_innovcent_org" {
   org_id              = var.org_id
   project_prefix      = var.project_prefix
   fleet_name          = "innovcent"
-  fleet_parent_folder = google_folder.usa.name
+  fleet_parent_folder = data.terraform_remote_state.baseline.outputs.folder_usa.id
   billing_account_id  = var.billing_account_id
 }
 
