@@ -8,7 +8,7 @@ steps:
       cd $d
       echo "in ${d}"
       terraform init
-      if [ $? -ne 0 ]; exit $?; fi
+      if [ $? -ne 0 ]; then exit $?; fi
       cd -
     done
     
@@ -22,7 +22,7 @@ steps:
         cd $d
         echo "in ${d}"
         terraform validate -no-color
-        if [ $? -ne 0 ]; exit $?; fi
+        if [ $? -ne 0 ]; then exit $?; fi
         cd -
       done
 
@@ -35,7 +35,7 @@ steps:
       cd $d
       echo "in ${d}"
       terraform fmt -recursive -check -no-color
-      if [ $? -ne 0 ]; exit $?; fi
+      if [ $? -ne 0 ]; then exit $?; fi
       cd -
     done
 
@@ -48,7 +48,7 @@ steps:
       cd $d
       echo "in ${d}"
       terraform apply -auto-approve -no-color
-      if [ $? -ne 0 ]; exit $?; fi
+      if [ $? -ne 0 ]; then exit $?; fi
       cd -
     done
 
