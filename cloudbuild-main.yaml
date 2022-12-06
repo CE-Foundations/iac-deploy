@@ -2,13 +2,12 @@ steps:
 - id: 'tf init'
   name: 'hashicorp/terraform:latest'
   script: |
-    #!/bin/sh
+    #!/bin/sh -e
     
     for d in */; do
       cd $d
-      echo "in ${d}"
+      echo "init in ${d}"
       terraform init -no-color
-      if [ $? -ne 0 ]; then exit $?; fi
       cd -
     done || exit 1
     
@@ -16,39 +15,35 @@ steps:
 - id: 'tf validate'
   name: 'hashicorp/terraform:latest'
   script: |
-      #!/bin/sh
+      #!/bin/sh -e
       
       for d in */; do
         cd $d
-        echo "in ${d}"
-        terraform validate -no-color
-        if [ $? -ne 0 ]; then exit $?; fi
+        echo " validate in ${d}"
         cd -
       done || exit 1
 
 - id: 'tf fmt'
   name: 'hashicorp/terraform:latest'
   script: |
-    #!/bin/sh
+    #!/bin/sh -e
     
     for d in */; do
       cd $d
-      echo "in ${d}"
+      echo "fmt in in ${d}"
       terraform fmt -recursive -check -no-color
-      if [ $? -ne 0 ]; then exit $?; fi
       cd -
     done || exit 1
 
 - id: 'tf apply'
   name: 'hashicorp/terraform:latest'
   script: |
-    #!/bin/sh
+    #!/bin/sh -e
     
     for d in */; do
       cd $d
-      echo "in ${d}"
+      echo "apply in ${d}"
       terraform apply -auto-approve -no-color
-      if [ $? -ne 0 ]; then exit $?; fi
       cd -
     done || exit 1
 
