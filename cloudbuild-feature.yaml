@@ -1,30 +1,59 @@
 steps:
 - id: 'tf init'
   name: 'hashicorp/terraform:latest'
-  args:
-    - init
-    - -no-color
+  script: |
+    #!/bin/sh
+    set -e
+
+    for d in */; do
+      cd $d
+      echo; echo "Running 'init' in ${d}"; echo
+      terraform init -no-color
+      echo; echo
+      cd -
+    done
 
 - id: 'tf validate'
   name: 'hashicorp/terraform:latest'
-  args:
-    - validate
-    - -no-color
+  script: |
+    #!/bin/sh 
+    set -e
+
+    for d in */; do
+      cd $d
+      echo; echo "Running 'validate' in ${d}"; echo
+      terraform validate -no-color
+      echo; echo
+      cd -
+    done 
 
 - id: 'tf fmt'
   name: 'hashicorp/terraform:latest'
-  args:
-    - fmt
-    - -recursive
-    - -check
-    - -no-color
+  script: |
+    #!/bin/sh
+    set -e
+
+    for d in */; do
+      cd $d
+      echo; echo "Running 'fmt' in in ${d}"; echo
+      terraform fmt -recursive -check -no-color
+      echo; echo
+      cd -
+    done
 
 - id: 'tf plan'
   name: 'hashicorp/terraform:latest'
-  args:
-    - plan
-    - -no-color
-    - -lock=false
+  script: |
+    #!/bin/sh
+    set -e
+
+    for d in */; do
+      cd $d
+      echo; echo "Running 'apply' in ${d}"; echo
+      terraform plan -no-color -lock=false
+      echo; echo
+      cd -
+    done
 
 options:
   logging: CLOUD_LOGGING_ONLY

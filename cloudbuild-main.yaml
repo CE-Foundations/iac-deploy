@@ -4,25 +4,24 @@ steps:
   script: |
     #!/bin/sh
     set -e
-    
+
     for d in */; do
       cd $d
-      echo "Running 'init' in ${d}"
+      echo; echo "Running 'init' in ${d}"; echo
       terraform init -no-color
       echo; echo
       cd -
     done
-    
 
 - id: 'tf validate'
   name: 'hashicorp/terraform:latest'
   script: |
       #!/bin/sh 
       set -e
-      
+
       for d in */; do
         cd $d
-        echo "Running 'validate' in ${d}"
+        echo; echo "Running 'validate' in ${d}"; echo
         terraform validate -no-color
         echo; echo
         cd -
@@ -33,10 +32,10 @@ steps:
   script: |
     #!/bin/sh
     set -e
-    
+
     for d in */; do
       cd $d
-      echo "Running 'fmt' in in ${d}"
+      echo; echo "Running 'fmt' in in ${d}"; echo
       terraform fmt -recursive -check -no-color
       echo; echo
       cd -
@@ -47,10 +46,10 @@ steps:
   script: |
     #!/bin/sh
     set -e
-    
+
     for d in */; do
       cd $d
-      echo "Running 'apply' in ${d}"
+      echo; echo "Running 'apply' in ${d}"; echo
       terraform apply -auto-approve -no-color
       echo; echo
       cd -
