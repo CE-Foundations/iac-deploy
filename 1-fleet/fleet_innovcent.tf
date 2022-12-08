@@ -1,7 +1,6 @@
 # Creates "innovcent" fleet, org hierarchy: folders, projects, and enables services
 module "fleet_innovcent_org" {
-  #  source = "github.com/secretspecialsauce/iac-fleet-mod//fleet"
-  source = "/Users/durivage/Projects/customers/mcd/iac-fleet-mod/fleet"
+  source = "github.com/secretspecialsauce/iac-fleet-mod//fleet"
 
   org_id              = var.org_id
   project_prefix      = var.project_prefix
