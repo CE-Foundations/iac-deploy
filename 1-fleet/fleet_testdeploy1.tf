@@ -1,7 +1,6 @@
 # Creates "innovcent" fleet, org hierarchy: folders, projects, and enables services
 module "fleet_testdeploy1" {
   source = "github.com/secretspecialsauce/iac-fleet-mod//fleet"
-  #  source = "/Users/durivage/Projects/customers/mcd/iac-fleet-mod/fleet"
 
   org_id              = var.org_id
   project_prefix      = var.project_prefix
@@ -43,20 +42,21 @@ module "fleet_testdeploy1" {
 # Currently includes GSAs
 module "fleet_testdeploy1_clust-matt-1" {
   source = "github.com/secretspecialsauce/iac-fleet-mod//cluster"
-  #  source = "/Users/durivage/Projects/customers/mcd/iac-fleet-mod/cluster"
 
   cluster_name = "clus-matt-1"
-  # Deploys GSAs to GSA proj, sets IAM for GSA to given projects
-  gsa_project_id                         = module.fleet_testdeploy1.control_plane_service_account_project.project_id
-  gsa_gcr_agent_iam_project              = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_abm_gke_connect_agent_iam_project  = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_abm_gke_register_agent_iam_project = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_acm_monitoring_agent_iam_project   = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_abm_ops_agent_iam_project          = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_external_secrets_iam_project       = module.fleet_testdeploy1.control_plane_secret_manager_project.project_id
-  gsa_sds_backup_agent_iam_project       = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_gateway_connect_agent_iam_project  = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_source_repo_agent_iam_project      = module.fleet_testdeploy1.control_plane_source_project.project_id
-  gsa_cdi_import_agent_iam_project       = module.fleet_testdeploy1.fleet_project.project_id
-  gsa_storage_agent_iam_project          = module.fleet_testdeploy1.fleet_project.project_id
+
+  # GCP project where GSAs are created
+  gsa_project_id    = module.fleet_poc.control_plane_service_account_project.project_id
+  secret_project_id = module.fleet_poc.control_plane_secret_manager_project.project_id
+  # Projects where IAM bindings are created
+  gsa_gcr_agent_iam_project              = module.fleet_poc.fleet_project.project_id
+  gsa_abm_gke_connect_agent_iam_project  = module.fleet_poc.fleet_project.project_id
+  gsa_abm_gke_register_agent_iam_project = module.fleet_poc.fleet_project.project_id
+  gsa_abm_ops_agent_iam_project          = module.fleet_poc.fleet_project.project_id
+  gsa_acm_monitoring_agent_iam_project   = module.fleet_poc.fleet_project.project_id
+  gsa_external_secrets_iam_project       = module.fleet_poc.control_plane_secret_manager_project.project_id
+  gsa_sds_backup_agent_iam_project       = module.fleet_poc.fleet_project.project_id # TODO buckets to be created
+  gsa_gateway_connect_agent_iam_project  = module.fleet_poc.fleet_project.project_id
+  gsa_cdi_import_agent_iam_project       = module.fleet_poc.fleet_project.project_id # TODO assign global control plane
+  gsa_storage_agent_iam_project          = module.fleet_poc.fleet_project.project_id # TODO same as SDS
 }
