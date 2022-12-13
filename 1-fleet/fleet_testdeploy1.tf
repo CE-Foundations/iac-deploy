@@ -21,7 +21,7 @@ module "fleet_testdeploy1" {
   fleet_vpn_router_bgp_asn = "64519"
   fleet_vpn_peer_config = {
     "clus-matt-1" = {
-      peer_ips      = ["24.13.15.63"]
+      peer_ips      = ["24.13.15.63", "24.13.15.63"]
       shared_secret = "vllGEsry26GvAZy8Q508Ykjcd6MBzOxJ"
       router_ips = {
         interface1 = {
@@ -31,7 +31,7 @@ module "fleet_testdeploy1" {
         }
         interface2 = {
           ip_range = "169.254.1.3/30"
-          peer_ip  = "169.254.1.4"
+          peer_ip  = "169.254.1.2"
           peer_asn = "64515"
         }
       }
