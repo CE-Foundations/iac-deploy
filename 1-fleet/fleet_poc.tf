@@ -61,7 +61,7 @@ module "fleet_poc_cluster_0" {
   source = "github.com/secretspecialsauce/iac-fleet-mod//cluster"
   #  source = "/Users/durivage/Projects/customers/mcd/iac-fleet-mod/cluster"
 
-  cluster_name = "clus-0"
+  cluster_name = "clus-1"
   # Deploys GSAs to GSA proj, sets IAM for GSA to given projects
   gsa_project_id                         = module.fleet_poc.control_plane_service_account_project.project_id
   gsa_gcr_agent_iam_project              = module.fleet_poc.fleet_project.project_id
