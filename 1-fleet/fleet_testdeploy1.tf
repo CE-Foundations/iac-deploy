@@ -62,4 +62,5 @@ module "fleet_testdeploy1_clust-matt-1" {
 
   sds_bucket_location = "us-central1"
   sds_project_id      = module.fleet_testdeploy1.control_plane_sds_project.project_id
+  sds_bucket_prefix   = var.project_prefix
 }

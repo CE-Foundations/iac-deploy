@@ -79,4 +79,5 @@ module "fleet_poc_cluster_0" {
 
   sds_bucket_location = "us-central1"
   sds_project_id      = module.fleet_poc.control_plane_sds_project.project_id
+  sds_bucket_prefix   = var.project_prefix
 }
