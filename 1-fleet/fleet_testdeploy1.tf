@@ -46,17 +46,17 @@ module "fleet_testdeploy1_clust-matt-1" {
   cluster_name = "clus-matt-1"
 
   # GCP project where GSAs are created
-  gsa_project_id    = module.fleet_poc.control_plane_service_account_project.project_id
-  secret_project_id = module.fleet_poc.control_plane_secret_manager_project.project_id
+  gsa_project_id    = module.fleet_testdeploy1.control_plane_service_account_project.project_id
+  secret_project_id = module.fleet_testdeploy1.control_plane_secret_manager_project.project_id
   # Projects where IAM bindings are created
-  gsa_gcr_agent_iam_project              = module.fleet_poc.fleet_project.project_id
-  gsa_abm_gke_connect_agent_iam_project  = module.fleet_poc.fleet_project.project_id
-  gsa_abm_gke_register_agent_iam_project = module.fleet_poc.fleet_project.project_id
-  gsa_abm_ops_agent_iam_project          = module.fleet_poc.fleet_project.project_id
-  gsa_acm_monitoring_agent_iam_project   = module.fleet_poc.fleet_project.project_id
-  gsa_external_secrets_iam_project       = module.fleet_poc.control_plane_secret_manager_project.project_id
-  gsa_sds_backup_agent_iam_project       = module.fleet_poc.fleet_project.project_id # TODO buckets to be created
-  gsa_gateway_connect_agent_iam_project  = module.fleet_poc.fleet_project.project_id
-  gsa_cdi_import_agent_iam_project       = module.fleet_poc.fleet_project.project_id # TODO assign global control plane
-  gsa_storage_agent_iam_project          = module.fleet_poc.fleet_project.project_id # TODO same as SDS
+  gsa_gcr_agent_iam_project              = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_abm_gke_connect_agent_iam_project  = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_abm_gke_register_agent_iam_project = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_abm_ops_agent_iam_project          = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_acm_monitoring_agent_iam_project   = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_external_secrets_iam_project       = module.fleet_testdeploy1.control_plane_secret_manager_project.project_id
+  gsa_sds_backup_agent_iam_project       = module.fleet_testdeploy1.fleet_project.project_id # TODO buckets to be created
+  gsa_gateway_connect_agent_iam_project  = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_cdi_import_agent_iam_project       = module.fleet_testdeploy1.fleet_project.project_id # TODO assign global control plane
+  gsa_storage_agent_iam_project          = module.fleet_testdeploy1.fleet_project.project_id # TODO same as SDS
 }
