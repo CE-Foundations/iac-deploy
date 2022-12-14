@@ -61,6 +61,7 @@ module "fleet_poc_cluster_0" {
 
   cluster_name = "clus-1"
 
+  ## Service Account Config
   # GCP project where GSAs are created
   gsa_project_id    = module.fleet_poc.control_plane_service_account_project.project_id
   secret_project_id = module.fleet_poc.control_plane_secret_manager_project.project_id
@@ -75,4 +76,7 @@ module "fleet_poc_cluster_0" {
   gsa_gateway_connect_agent_iam_project  = module.fleet_poc.fleet_project.project_id
   gsa_cdi_import_agent_iam_project       = module.fleet_poc.fleet_project.project_id # TODO assign global control plane
   gsa_storage_agent_iam_project          = module.fleet_poc.fleet_project.project_id # TODO same as SDS
+  
+  sds_bucket_location = "us-central1"
+  sds_project_id      = module.fleet_poc.control_plane_sds_project.project_id
 }
