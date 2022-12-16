@@ -78,6 +78,6 @@ module "fleet_poc_cluster_0" {
   gsa_storage_agent_iam_project          = module.fleet_poc.fleet_project.project_id # TODO same as SDS
 
   sds_bucket_location = "us-central1"
-  sds_project_id      = module.fleet_poc.control_plane_sds_project.project_id
+  sds_project_id      = module.fleet_poc.fleet_project.project_id
   sds_bucket_prefix   = var.project_prefix
 }
