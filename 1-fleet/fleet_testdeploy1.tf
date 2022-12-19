@@ -39,15 +39,17 @@ module "fleet_testdeploy1" {
 }
 
 # Deploys one cluster's worth of resources
-# Currently includes GSAs
+# Currently includes GSAs, SDS bucket & HMAC keys, Snapshot bucket
 module "fleet_testdeploy1_clust-matt-1" {
   source = "github.com/secretspecialsauce/iac-fleet-mod//cluster"
 
-  cluster_name = "clus-matt-1"
+  cluster_name     = "clus-matt-1"
+  fleet_project_id = module.fleet_testdeploy1.fleet_project.project_id
 
   # GCP project where GSAs are created
   gsa_project_id    = module.fleet_testdeploy1.control_plane_service_account_project.project_id
   secret_project_id = module.fleet_testdeploy1.control_plane_secrets_project.project_id
+
   # Projects where IAM bindings are created
   gsa_gcr_agent_iam_project              = module.fleet_testdeploy1.fleet_project.project_id
   gsa_abm_gke_connect_agent_iam_project  = module.fleet_testdeploy1.fleet_project.project_id
@@ -55,12 +57,14 @@ module "fleet_testdeploy1_clust-matt-1" {
   gsa_abm_ops_agent_iam_project          = module.fleet_testdeploy1.fleet_project.project_id
   gsa_acm_monitoring_agent_iam_project   = module.fleet_testdeploy1.fleet_project.project_id
   gsa_external_secrets_iam_project       = module.fleet_testdeploy1.control_plane_secrets_project.project_id
-  gsa_sds_backup_agent_iam_project       = module.fleet_testdeploy1.fleet_project.project_id
+  gsa_sds_backup_agent_iam_project       = module.fleet_testdeploy1.control_plane_sds_project.project_id
   gsa_gateway_connect_agent_iam_project  = module.fleet_testdeploy1.fleet_project.project_id
   gsa_cdi_import_agent_iam_project       = module.fleet_testdeploy1.fleet_project.project_id
   gsa_storage_agent_iam_project          = module.fleet_testdeploy1.fleet_project.project_id
 
-  sds_bucket_location = "us-central1"
   sds_project_id      = module.fleet_testdeploy1.fleet_project.project_id
   sds_bucket_prefix   = var.project_prefix
+  sds_bucket_location = "us-central1"
+
+  snapshot_bucket_location = "us-central1"
 }
