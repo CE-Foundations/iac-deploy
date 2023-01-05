@@ -68,6 +68,10 @@ steps:
       echo; echo
       cd -
     done
+substitutions:
+    _ORG_ID: "" # default value
+    _BILLING_ACCOUNT_ID: "" # default value
+    _PARENT_FOLDER: "" # default value
 
 options:
   logging: CLOUD_LOGGING_ONLY
