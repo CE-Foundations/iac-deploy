@@ -5,7 +5,7 @@ module "fleet_poc" {
   org_id              = var.org_id
   project_prefix      = var.project_prefix
   billing_account_id  = var.billing_account_id
-  fleet_name          = "poc"
+  # fleet_name          = "poc"
   fleet_folders       = data.terraform_remote_state.baseline.output.fleet_folders
 #   fleet_parent_folder = data.terraform_remote_state.baseline.outputs.folder_usa.id
 
