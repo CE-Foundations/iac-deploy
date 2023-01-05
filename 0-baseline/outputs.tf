@@ -1,3 +1,3 @@
-output "folder_usa" {
-  value = google_folder.usa
+output "fleet_folders" {
+  value = fleet_org.level2_folders
 }
