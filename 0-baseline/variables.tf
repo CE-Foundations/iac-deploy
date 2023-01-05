@@ -20,3 +20,8 @@ variable "parent_folder" {
     error_message = "Parent folder ID may only contain alphanumeric characters, numbers, dash, dot and underscore."
   }
 }
+
+variable "org" {
+  description = "tuples of parent with a list of folder childs"
+  type = map
+}
