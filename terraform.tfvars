@@ -1,5 +1,6 @@
-# org_id             = "83376693215"
-# billing_account_id = "014D63-57B733-FB4FEC"
+org_id             = "692184759409"
+billing_account_id = "01BDD6-F4DA44-2C9185"
+parent_folder      = "580354167733"
 project_prefix     = "fto"
 
 org = {

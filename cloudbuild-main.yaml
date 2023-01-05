@@ -8,12 +8,6 @@ steps:
     for d in */; do
       cd $d
       echo; echo "Running 'init' in ${d}"; echo
-      export TF_VAR_org_id=${_ORG_ID}
-      export TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
-      export TF_VAR_parent_folder=${_PARENT_FOLDER}
-      echo "TF_VAR_parent_folder:${TF_VAR_parent_folder}"
-      echo "TF_VAR_billing_account_id:${TF_VAR_billing_account_id}"
-      echo "TF_VAR_org_id:${TF_VAR_org_id}"
       terraform init -no-color
       echo; echo
       cd -
@@ -28,9 +22,6 @@ steps:
       for d in */; do
         cd $d
         echo; echo "Running 'validate' in ${d}"; echo
-        export TF_VAR_org_id=${_ORG_ID}
-        export TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
-        export TF_VAR_parent_folder=${_PARENT_FOLDER}
         terraform validate -no-color
         echo; echo
         cd -
@@ -61,17 +52,10 @@ steps:
     for d in */; do
       cd $d
       echo; echo "Running 'apply' in ${d}"; echo
-      export TF_VAR_org_id=${_ORG_ID}
-      export TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
-      export TF_VAR_parent_folder=${_PARENT_FOLDER}
       terraform apply -auto-approve -no-color
       echo; echo
       cd -
     done
-substitutions:
-    _ORG_ID: "" # default value
-    _BILLING_ACCOUNT_ID: "" # default value
-    _PARENT_FOLDER: "" # default value
 
 options:
   logging: CLOUD_LOGGING_ONLY
