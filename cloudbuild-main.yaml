@@ -11,9 +11,9 @@ steps:
       export TF_VAR_org_id=${_ORG_ID}
       export TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
       export TF_VAR_parent_folder=${_PARENT_FOLDER}
-      echo $TF_VAR_parent_folder
-      echo $TF_VAR_billing_account_id
-      echo $TF_VAR_org_id
+      echo "TF_VAR_parent_folder:${TF_VAR_parent_folder}"
+      echo "TF_VAR_billing_account_id:${TF_VAR_billing_account_id}"
+      echo "TF_VAR_org_id:${TF_VAR_org_id}"
       terraform init -no-color
       echo; echo
       cd -
