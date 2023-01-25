@@ -58,9 +58,7 @@ steps:
     # for d in */; do
       cd 0-baseline
       echo; echo "Running 'apply' in 0-baseline"; echo
-      export TF_VAR_org_id=${_ORG_ID}
-      export TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
-      export TF_VAR_parent_folder=${_PARENT_FOLDER}
+      env
       terraform apply -auto-approve -no-color
       echo; echo
       cd -
