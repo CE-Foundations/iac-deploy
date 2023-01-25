@@ -5,6 +5,7 @@ steps:
   - TF_VAR_org_id=${_ORG_ID}
   - TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
   - TF_VAR_parent_folder=${_PARENT_FOLDER}
+  - TF_VAR_state_bucket=${_TFSTATE_BUCKET}
   script: |
     #!/bin/sh
     set -e
@@ -52,6 +53,7 @@ steps:
   - TF_VAR_org_id=${_ORG_ID}
   - TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
   - TF_VAR_parent_folder=${_PARENT_FOLDER}
+  - TF_VAR_state_bucket=${_TFSTATE_BUCKET}
   script: |
     #!/bin/sh
     set -e

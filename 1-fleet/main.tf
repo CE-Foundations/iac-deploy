@@ -1,14 +1,14 @@
 terraform {
   backend "gcs" {
-    bucket = "fto-tf-state-0"
-    prefix = "iac-deploy/1-fleet"
+    bucket = var.state_bucket
+    prefix = "terraform/state/generic/iac-fleet-mod"
   }
 }
 
 data "terraform_remote_state" "baseline" {
   backend = "gcs"
   config = {
-    bucket = "fto-tf-state-0"
-    prefix = "iac-deploy/0-org"
+    bucket = var.state_bucket
+    prefix = "terraform/state/generic/iac-fleet-org-mod"
   }
 }

@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "test-edge-0-tfstate"
+    bucket = var.state_bucket
     prefix = "terraform/state/generic/iac-fleet-org-mod"
   }
 }

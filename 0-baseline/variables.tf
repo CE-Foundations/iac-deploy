@@ -21,3 +21,7 @@ variable "org" {
   description = "tuples of parent with a list of folder childs"
   type = map
 }
+
+variable "state_bucket" {
+  type = string
+}

@@ -10,3 +10,7 @@ variable "billing_account_id" {
 variable "project_prefix" {
   type = string
 }
+
+variable "state_bucket" {
+  type = string
+}
