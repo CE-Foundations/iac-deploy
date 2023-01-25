@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "${var.state_bucket}"
+    bucket = "test-edge-0-tfstate"
     prefix = "terraform/state/generic/iac-fleet-mod"
   }
 }
@@ -8,7 +8,7 @@ terraform {
 data "terraform_remote_state" "baseline" {
   backend = "gcs"
   config = {
-    bucket = "${var.state_bucket}"
+    bucket = "test-edge-0-tfstate"
     prefix = "terraform/state/generic/iac-fleet-org-mod"
   }
 }
