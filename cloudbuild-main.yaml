@@ -13,7 +13,7 @@ steps:
     for d in */; do
       cd $d
       echo; echo "Running 'init' in ${d}"; echo
-      terraform init -no-color -backend-config "bucket=$TF_VAR_state_bucket"
+      terraform init -no-color -backend-config="bucket=$TF_VAR_state_bucket"
       echo; echo
       cd -
     done
@@ -61,7 +61,7 @@ steps:
     for d in */; do
       cd $d
       echo; echo "Running 'apply' in ${d}"; echo
-      terraform apply -auto-approve -no-color -backend-config "bucket=$TF_VAR_state_bucket"
+      terraform apply -auto-approve -no-color -backend-config="bucket=$TF_VAR_state_bucket"
       echo; echo
       cd -
     done
