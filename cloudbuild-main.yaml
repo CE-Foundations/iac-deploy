@@ -47,6 +47,10 @@ steps:
 
 - id: 'tf apply'
   name: 'hashicorp/terraform:latest'
+  env:
+  - TF_VAR_org_id=${_ORG_ID}
+  - TF_VAR_billing_account_id=${_BILLING_ACCOUNT_ID}
+  - TF_VAR_parent_folder=${_PARENT_FOLDER}
   script: |
     #!/bin/sh
     set -e
