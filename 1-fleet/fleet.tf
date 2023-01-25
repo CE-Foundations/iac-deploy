@@ -1,6 +1,6 @@
 # Creates "innovcent" fleet, org hierarchy: folders, projects, and enables services
 module "fleet_poc" {
-  source = "github.com/CE-Foundations/iac-fleet-mod//fleet"
+  source = "github.com/CE-Foundations/iac-fleet-mod/tree/testing//fleet"
   tf_state_bucket = "test-edge-0-tfstate"
   org_id              = var.org_id
   billing_account_id  = var.billing_account_id
